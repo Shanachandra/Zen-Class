@@ -1,0 +1,60 @@
+1. Browser JS VS Node JS
+
+Browser JS:
+"Window" is a predefined global object which has functions and attributes, that have to deal with window that has been drawn
+"location" is another predefined object in browsers, that has all the information about the url we have loaded
+"document" whihc is predefined global variables in browser, has the html which is rendered
+browsers amy have an object named "global", but it will be the exact one as "Window"
+Browsers dont have "require" predefined. you may include it in your app for asynchronous file loading
+
+Node JS:
+Node doesn't have a predfined "Window" object because it doesnt have a window to draw anything
+"location" object is related to particular URL, that means it is for page specific. So node doesnt require that
+Node need to render anything in a page so it doesnt have a "document" object
+Node has "global" which is predefied object, it contains several funcitons that are not available in browsers, cause they are needed for server side works only
+"require" object is predefined in Node which is used to include modules in the app
+  
+ *****************************************************************************************************************************************************************
+ 
+2.Watch and summary:
+How does the browser render a website?
+
+      parse html  |
+                  |_______Render Tree_______Layout_______Painting
+      parse css   |
+
+   1. Parsing-->Dom Tree, CSSOM Tree
+                 we parse our css and html that creates dom tree and cssom tree
+   2. Render Tree-->then Dom tree will convert into render tree, so the html and css combined
+   3. 4 trees-->the layers, the line boxes,the render objects,and the render styles
+   4. Layout computes where a Node will be on the screen
+   5. painting will produce an image of that layer which give you the visual output of what you are expecting on the page
+
+*****************************************************************************************************************************************************
+
+3. Is it necessary to write HEAD,BODY and HTML tags?
+omitting html,head,body tags is certainly allowed by the HTML specs. The underlying reason is that browsers have always sought to be consistent
+with existing web pages, and the very early versions of HTML didnt define those elements.when HTML 2.0 first did it was done in a way that
+the tags would be inferred when missing
+
+******************************************************************************************************************************************************
+
+4. Execute the below code and write your description in txt file
+    a.typeof(1) -- number
+    b.typeof(1.1) -- number
+    c.typeof('1.1') -- string
+    d.typeof(true) -- boolean
+    e.typeof(null) -- object
+    f.typeof(undefined) -- undefined
+    g.typeof([]) -- object
+    h.typeof({}) --object
+    j.typeof(NaN) --undefined
+
+**************************************************************************************************************************************************************
+
+5. What is prototype?
+JavaScript is a prototype based language, so, whenever we create a function using JavaScript, JavaScript engine adds a prototype property inside a function,
+ Prototype property is basically an object (also known as Prototype object), where we can attach methods and properties in a prototype object, 
+which enables all the other objects to inherit these methods and properties.
+
+***************************************************************************************************************************************************************
