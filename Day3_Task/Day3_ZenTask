@@ -1,0 +1,90 @@
+1. For the given JSON iterate over all for loops (for, for in, for of, forEach)
+
+var sampleobj=[{ person: "Name-1", age: "2", company: "GUVI" },{ person: "Name-2", age: "5", company: "GUVI geek" },
+                  { person: "Name-3", age: "8", company: "GUVI geek network" }]
+
+//for 
+console.log("For loop Example:")
+for(var obj=0; obj<sampleobj.length;obj++)
+{
+    console.log("Person:"+" "+sampleobj[obj].person)
+    console.log("Age:"+" "+sampleobj[obj].age)
+    console.log("Company:"+" "+sampleobj[obj].company)
+}
+console.log("____________________________________________")
+//for in
+console.log("For-In  loop Example:")
+for(var obj in sampleobj)
+{
+    console.log("Person:"+" "+sampleobj[obj].person)
+    console.log("Age:"+" "+sampleobj[obj].age)
+    console.log("Company:"+" "+sampleobj[obj].company)
+}
+console.log("____________________________________________")
+//for of
+console.log("For-Of  loop Example:")
+for(var obj of sampleobj)
+{
+    console.log("Person:"+" "+obj.person)
+    console.log("Age:"+" "+obj.age)
+    console.log("Company:"+" "+obj.company)
+}
+console.log("____________________________________________")
+//forEach
+console.log("For-Each  loop Example:")
+sampleobj.forEach((arrayItem) =>{
+   console.log("Person:"+" "+arrayItem.person)
+   console.log("Age:"+" "+arrayItem.age)
+   console.log("Company:"+" "+arrayItem.company)
+});
+console.log("____________________________________________")
+
+***********************************************************************************************************************************************
+
+2. Create your own resume data in JSON format
+{
+	"Resume_id_01": [{
+			"Personal Data": {
+				"name": "Rishika",
+				"email": "rishikaruns98@gmail.com",
+				"Phone": "8989898989"
+			}
+		},
+		{
+			"Education": {
+				"SSLC": "Don Bosco Matriculation School",
+				"HSC": "Vidhyaa vikas higher secondary school",
+				"College": "St.Josephs college of engineering"
+			}
+		},
+		{
+			"Skills": {
+				"Language": "C#, Xamarin",
+				"Backend": "Web API, SQL",
+				"App Service": "Azure functions"
+			}
+		},
+		{
+			"Hobbies": {
+				"Indoor": "Baking",
+				"Outdoor": "Visit new places",
+				"Movies": "Watching Series"
+			}
+		}
+	]
+}
+
+*******************************************************************************************************************************************************
+
+3. Difference between Window Screen and documentin Javascript
+
+     1.window is the execution context and global object for that context's JavaScript
+     2.screen describes the physical display's full screen
+     3.Document contains the DOM, initialized by parsing HTML
+
+The window is the first thing that gets loaded into the browser. This window object has the majority of the properties like length, innerWidth,innerHeight
+The document object is the html, aspx, php, or other document that will be loaded into the browser.
+The document actually gets loaded inside the window object and has properties available to it like title, URL, cookie, etc.
+window.screen or just screen is a small information object about physical screen dimensions.
+
+************************************************************************************************************************************************************
