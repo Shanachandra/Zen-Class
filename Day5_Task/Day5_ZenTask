@@ -1,1 +1,378 @@
+1.Do the below programs in anonymous function & IIFE
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+1.Print odd numbers in an array
+   //anonymous
+  let arr=[1,2,3,4,5]
+  var Print_OddNumber=function(array){
+    for(let i=0;i<array.length;i++)
+    {
+      if(array[i]%2!=0)
+      {
+        console.log(array[i])
+      }
+    }
+  }
+  Print_OddNumber(arr)
+
+  //IIFE
+  (function(array1){
+    for(let i=0;i<array1.length;i++)
+    {
+      if(array1[i]%2!=0)
+      {
+        console.log(array1[i])
+      }
+    }
+  })([1,2,3,4,5])
+
+***********************************************************
+2.Convert all the strings to title caps in a string array
+
+ //anonymous
+  let arr=['apple','orange','banana']
+  let ConverttoCaps=function(array){
+    array.forEach(element => {
+     element=element.charAt(0).toUpperCase()+ element.slice(1)
+      console.log(element)
+    });
+
+  }
+  ConverttoCaps(arr)
+
+  //IIFE
+  (function(array){
+    array.forEach(element => {
+     element=element.charAt(0).toUpperCase()+ element.slice(1)
+      console.log(element)
+    });
+
+  })(['apple','orange','banana'])
+
+*****************************************************************
+3.Sum of all numbers in an array
+
+//anonymous
+  let arr=[1,2,3,4,5]
+  let Sum_Of_Number=function(array){
+    let sum=0;
+    array.forEach(element => {
+        sum=sum+element;
+      
+    });
+    console.log(sum)
+  }
+  Sum_Of_Number(arr)
+
+  //IIFE 
+ (function(array){
+  let sum=0;
+  array.forEach(element => {
+      sum=sum+element;
+    
+  });
+  console.log(sum)
+})([1,2,3,4,5])
+
+******************************************************************
+4.Return all the prime numbers in an array
+  //anonymous
+  let arr=[1,2,3,4,5,6,7,8,9,10]
+  let Find_all_Prime=function(array){
+    let new_arr=[];
+    array.forEach(element => {            
+      var found=false;
+      for(let i=2;i<element;i++)
+      {        
+        if(element%i==0)
+        {
+            found=true;
+        }
+      }  
+      if(found==false)
+      {
+        new_arr.push(element)
+      }
+    });
+    console.log(new_arr)
+  }
+  Find_all_Prime(arr)
+  //IIFE
+  (function(array){
+    let new_arr=[];
+    array.forEach(element => {            
+      var found=false;
+      for(let i=2;i<element;i++)
+      {        
+        if(element%i==0)
+        {
+            found=true;
+        }
+      }  
+      if(found==false)
+      {
+        new_arr.push(element)
+      }
+    });
+    console.log(new_arr)
+  })([1,2,3,4,5,6,7,8,9,10])
+
+******************************************************************
+5.Return all the palindromes in an array
+
+let arr=['madam','malayalam','teacher']
+  let return_Palindrome=function(array){
+    
+    array.forEach(element => {            
+      let new_element=element.split("").reverse().join("") 
+      if(element==new_element)
+      {
+        console.log("Its a Plaindrome: " + element)
+      }    
+    });    
+  }
+  return_Palindrome(arr)
+
+  //IIFE
+ (function(array){
+    
+  array.forEach(element => {            
+    let new_element=element.split("").reverse().join("") 
+    if(element==new_element)
+    {
+      console.log("Its a Plaindrome: " + element)
+    }    
+  });    
+})(['madam','malayalam','teacher'])
+
+*******************************************************************
+6.Return median of two sorted arrays of same size
+
+ //anonymous
+  let arr1=[1,2,3,4]
+  let arr2=[5,6,7,8]
+  let get_Median=function(arr1,arr2){
+    let concat_arr=arr1.concat(arr2).sort();    
+    let len=concat_arr.length;
+    let medium=(+concat_arr[len/2])+(+concat_arr[len/2-1])
+    console.log(medium)
+  }
+  get_Median(arr1,arr2)
+
+  //IIFE
+ (function(arr1,arr2){
+  let concat_arr=arr1.concat(arr2).sort();    
+  let len=concat_arr.length;
+  let medium=(+concat_arr[len/2])+(+concat_arr[len/2-1])
+  console.log(medium)
+})([1,2,3,4],[5,6,7,8])
+
+***********************************************************************
+
+7.Remove duplicates from an array
+
+ //anonymous
+  let arr=[1,2,3,4,2,3,5,6,7,8,4]
+  
+  let remove_duplicate=function(array){
+    let new_arr=[];
+    array.forEach(element => {
+      if(new_arr.length>0)
+      {
+        let found=false;
+      for(let i=0;i<new_arr.length;i++)
+      {    
+        
+        if(element==new_arr[i])
+        {
+          found=true;
+          break;
+        }
+        
+      }
+      if(found==false)
+      {
+      new_arr.push(element)
+      }
+    }
+    else
+    {
+      new_arr.push(element)
+    }
+    });
+    console.log(new_arr)
+    
+  }
+  remove_duplicate(arr)
+  
+  //IIFE
+
+  (function(array){
+    let new_arr=[];
+    array.forEach(element => {
+      if(new_arr.length>0)
+      {
+        let found=false;
+      for(let i=0;i<new_arr.length;i++)
+      {    
+        
+        if(element==new_arr[i])
+        {
+          found=true;
+          break;
+        }
+        
+      }
+      if(found==false)
+      {
+      new_arr.push(element)
+      }
+    }
+    else
+    {
+      new_arr.push(element)
+    }
+    });
+    console.log(new_arr)
+    
+  })([1,2,3,4,2,3,5,6,7,8,4])
+
+********************************************************************
+8.Rotate an array by k times
+//Anonymous
+
+  let arr=[1,2,3,4,5]
+  let k=2;
+  let rotate_array=function(array,n)
+  {
+   var new_Arr=[];
+   for(let i=0;i<n;i++)
+   {
+     let a= array.pop(array[i])
+     new_Arr.push(a)      
+   }  
+   array.forEach(element => {     
+     new_Arr.push(element)
+   });
+   console.log(new_Arr)
+  }
+  rotate_array(arr,k)
+
+  //IIFE
+
+  (function(array,n)
+  {
+   var new_Arr=[];
+   for(let i=0;i<n;i++)
+   {
+     let a= array.pop(array[i])
+     new_Arr.push(a)      
+   }  
+   array.forEach(element => {     
+     new_Arr.push(element)
+   });
+   console.log(new_Arr)
+  })([1,2,3,4,5],2)
+
+*********************************************************************
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+3.Do the below programs in arrow functions
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+********************************************************************
+1.Print odd numbers in an array
+
+ let arr=[1,2,3,4,5]
+   var Print_OddNumber=(array)=>{
+     for(let i=0;i<array.length;i++)
+     {
+       if(array[i]%2!=0)
+       {
+         console.log(array[i])
+       }
+     }
+   }
+   Print_OddNumber(arr)
+
+*********************************************************************
+
+2.Convert all the strings to title caps in a string array
+
+//arrow function
+   let arr=['apple','orange','banana']
+  let ConverttoCaps=(array)=>{
+    array.forEach(element => {
+     element=element.charAt(0).toUpperCase()+ element.slice(1)
+      console.log(element)
+    });
+
+  }
+  ConverttoCaps(arr)
+
+*********************************************************************
+
+3.Sum of all numbers in an array
+
+//arrow function 
+ 
+  let arr=[1,2,3,4,5]
+  let Sum_Of_Number=(array)=>{
+    let sum=0;
+    array.forEach(element => {
+        sum=sum+element;
+      
+    });
+    console.log(sum)
+  }
+  Sum_Of_Number(arr)
+
+*********************************************************************
+
+4.Return all the prime numbers in an array
+
+  //arrow function 
+ 
+ let arr=[1,2,3,4,5,6,7,8,9,10]
+  let Find_all_Prime=(array)=>{
+    let new_arr=[];
+    array.forEach(element => {            
+      var found=false;
+      for(let i=2;i<element;i++)
+      {        
+        if(element%i==0)
+        {
+            found=true;
+        }
+      }  
+      if(found==false)
+      {
+        new_arr.push(element)
+      }
+    });
+    console.log(new_arr)
+  }
+  Find_all_Prime(arr)
+
+*********************************************************************
+
+5.Return all the palindromes in an array
+
+ //arrow function 
+ 
+   let arr=['madam','malayalam','teacher']
+  let return_Palindrome=(array)=>{    
+    array.forEach(element => {            
+      let new_element=element.split("").reverse().join("") 
+      if(element==new_element)
+      {
+        console.log("Its a Plaindrome: " + element)
+      }    
+    });    
+  }
+  return_Palindrome(arr)
+
+*********************************************************************
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 
