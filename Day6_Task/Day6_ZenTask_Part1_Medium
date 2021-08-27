@@ -1,0 +1,519 @@
+GUVI: Zen Class — Part 1: Find the culprits and nail them — debugging javascript
+
+*********************************************************************
+
+ 1.
+<!DOCTYPE html>
+<html>
+<body>
+ <script>
+ alert( “I’m JavaScript!’);
+ </script>
+ Whats the error in this ?
+</body>
+</html>
+
+ans:
+alert( "I'm JavaScript!"); 
+
+*********************************************************************
+
+2.
+fix.html
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+scripts.js
+alert(“I’m invoked!”);
+
+ans:
+ JS file name should match
+<script src=”scripts.js”></script> 
+
+*********************************************************************
+
+3.Explain the below how it works:
+
+explain.html
+<!DOCTYPE html>
+<html>
+<body>
+ <script src="scripts.js"></script>
+</body>
+</html>
+
+script.js
+alert("I'm JavaScript!");
+alert('Hello') // this line is not having semicolon
+alert(`Wor
+ ld`)
+alert(3 +
+1
++ 2); // this is multiple line code and its working
+
+Ans:
+when javascript file called
+   1.it first execute the first alert "I am Javascript"
+   2.in Javascript ';' is optional so it show second alert with "Hello" Message
+   3.third alert will show 'Wor' in first line and 'ld' in second line because of 
+       template literal. if normal quotation used then we need \n for new line  
+  4.since its an addition operator it added all the value and print 6 in alert 
+
+*********************************************************************
+
+ 4.
+fix.html
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+
+script.js
+let admin=9, fname=10.5; 
+fname = "Guvi";
+lname = "geek"
+admin = fname+lname;
+alert( admin ); // "Guvi geek"
+
+Ans: 
+admin=fname+" "+lname 
+
+*********************************************************************
+
+5.
+fix.html
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+
+script.js
+let fname=10.5; 
+fname = "Guvi";
+lname = "geek"
+let name = fname+lname;
+alert( 'hello ${name}' );
+
+Ans:
+name=fname+" "+lname
+add template literal -- alert(`hello ${name}`) 
+
+*********************************************************************
+
+ 6.
+
+fix.html
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+
+script.js
+let a = prompt("First number?");
+let b = prompt("Second number?");
+alert(a + b);
+
+Ans:
+by default the value taken as string, so to add two numbers have to convert string to Int
+alert((+a) + (+b)); 
+
+*********************************************************************
+7.
+fix.html
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+
+script.js
+var a = "2" > "12";
+//Don't touch below this
+
+if (a) {
+  console.log("Code is Blasted")
+}
+else
+{
+  console.log("Diffused") 
+}
+
+Ans:
+in order to show Diffused 'a' value must be false
+
+*********************************************************************
+
+7.Explain Why the Code is blasted and how to diffuse it and get “Diffused”
+fix.html
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+var a = "2" > "12";
+//Don't touch below this
+if (a) {
+  console.log("Code is Blasted")
+}
+else
+{
+  console.log("Diffused") 
+}
+
+Ans:
+the code is blasted since "2"  is greater than "12"
+It is comparing character by character 2 is greater than 1 in 12 so 'a' value is
+   and it printed code is blasted
+if need to be diffused then second value should be greater than first one
+ like  2>21 or 2>31 or 11>12 
+
+*********************************************************************
+8.
+ fix.html
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+
+script.js
+let a = prompt("Enter a number?");
+//Don't modify any code below this
+if (a) {
+ console.log( 'OMG it works for any number inc 0' );
+}
+else
+{
+ console.log( "Success" );
+}
+
+Ans:
+If any input given from user end in the prompt then 'a' value is true
+ then it will execute  'OMG it works for any number inc 0'
+ if no input fetch from user end then 'a' value will be empty it will print Success
+
+*********************************************************************
+ 9.
+ fix.html
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+let value = prompt('How many runs you scored in this ball');
+if (value === 4) {
+      console.log("You hit a Four");
+} else if (value === 6) {
+      console.log("You hit a Six");
+} else {
+      console.log("I couldn't figure out");
+}
+Ans:
+ If user enter '4' or '6' in the prompt then we will get a score, otherwise no score
+ 
+*********************************************************************
+
+ 10.
+  fix.html
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+let login = 'Employee';
+let message = (login == 'Employee') ? :
+  (login == 'Director') ? 'Greetings' :
+  (login == '') ? 'No login' :
+  '';
+console.log(message);
+
+Ans:
+let message = (login == 'Employee') ? 'Greetings' :
+  (login == '') ? 'No login' :
+  '';
+
+  Its a ternary operator, if first condition satisfies then it will print Greetings 
+
+*********************************************************************
+ 11.
+  fix.html
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+let login = 'Employee';
+let message = (login == 'Employee') ? :
+  (login == 'Director') ? 'Greetings' :
+  (login == '') ? 'No login' :
+  '';
+console.log(message);
+
+Ans:
+let message;
+
+if (null || 2 || undefined||'true' )
+{
+  message = "welcome boss";
+}
+else
+{
+  message = "Go away";
+}
+  console.log(message);
+
+  since message redeclare inside another block message value can access within that if block 
+  if we remove let from inner block it will print 
+
+*********************************************************************
+
+ 12.
+  fix.html
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+let message;
+let lock = 2;
+//Dont change any code below this 
+if (null || lock || undefined )
+{
+  message = "Go away";
+}
+else
+{
+ message = "welcome";
+}
+  console.log(message);
+
+  Ans:
+  since Welcome is in the else block if condition needs to fail
+  if lock =0 or lock=false these are falsy values then it will go to else part and print welcome
+ 
+  let message;
+  let lock = 0;
+   
+  //Dont change any code below this 
+  if (null || lock || undefined )
+  {
+    message = "Go away";
+  }
+  else
+  {
+   message = "welcome";
+  }
+    console.log(message);  
+
+*********************************************************************
+ 13.
+fix.html
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+let message;
+let lock = 2;
+//Dont change any code below this
+if (lock && " " || undefined )
+{
+  message = "Go away";
+}
+else
+{
+ message = "welcome";
+}
+console.log(message);
+
+Ans:
+since Welcome is in the else block if condition needs to fail
+if lock =0 or lock=false these are falsy values then it will go to else part and print welcome
+
+let message;
+let lock = false;
+//Dont change any code below this
+if (lock && " " || undefined )
+{
+  message = "Go away";
+}
+else
+{
+ message = "welcome";
+}
+console.log(message); 
+
+*********************************************************************
+ 14.
+fix.html
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+
+script.js
+//You can change only 2 characters
+let i = 3;
+while (i) {
+  console.log( --i );
+}
+
+Ans:
+ i-- will print i first then decrement the value
+let i = 3;
+while (i) {
+  console.log( i-- );
+} 
+
+*********************************************************************
+
+ 15.Change the code to print 1 to 10 in 4 lines
+fix.html
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+let num = 1
+console.log(num)
+num += 1
+console.log(num)
+num += 1
+console.log(num)
+num += 1
+console.log(num)
+num += 1
+console.log(num)
+num += 1
+console.log(num)
+num += 1
+console.log(num)
+num += 1
+console.log(num)
+num += 1
+console.log(num)
+num += 1
+console.log(num)
+
+Ans:
+for(let num=1;num<=10;num++)
+{
+	console.log(num)
+} 
+
+*********************************************************************
+
+16.Change the code to print even numbers
+fix.html
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+//You are allowed to modify only one character 
+for (let num = 2; num <= 20; num += 1) {
+  console.log(num)
+}
+
+Ans:
+increment should be '2' instead of '1'
+for (let num = 2; num <= 20; num += 2) {
+	console.log(num)
+  } 
+
+*********************************************************************
+
+17.Change the code to print all the gifts
+fix.html
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+let gifts = ["teddy bear", "drone", "doll"];
+for (let i = 0; i < 3; i++) {
+  console.log('Wrapped ${'gifts[i]'} and added a bow!');
+}
+
+Ans:
+remove single quote in gifts[i] and covered the entire line with template literal
+let gifts = ["teddy bear", "drone", "doll"];
+for (let i = 0; i < 3; i++) {
+  console.log(`Wrapped ${gifts[i]} and added a bow!`);
+} 
+
+*********************************************************************
+
+ 18.Fix the code to disarm the bomb.
+fix.html
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+let countdown = 100;
+while (countdown > 0) {
+  countdown--;
+  if(countdown == 0)
+  {
+   console.log("bomb triggered");
+  }
+}
+
+Ans:
+console.log("bomb disarm");
+we need to print bomb disarm when countdown is 0 
+
+*********************************************************************
+
+19.Whats the msg printed and why?
+var lemein = “0”;
+var lemeout = 0;
+var msg = “”;
+if (lemein) {
+ msg += “hi”;
+ }
+if (lemeout) {
+ msg += ‘Hello’;
+}
+console.log(msg);
+
+Ans:
+hi 
+since lemeout vlaue is 0 --it is falsy value so it wont satisfy if check, hello also cant add to the message
+
+*********************************************************************
+
