@@ -1,0 +1,114 @@
+class Movie
+{
+    constructor(title,studio,rating="PG")
+    {
+        this.title=title;
+        this.studio=studio;
+        this.rating=rating;
+
+    }
+    getPG(arr)
+    {
+      let new_arr=[];
+      
+      for(let data of arr)
+      {
+        let new_obj={};
+         if(data.rating=="PG")
+         {
+             new_obj["title"]=data.title
+             new_obj["studio"]=data.studio
+             new_obj["rating"]=data.rating
+             new_arr.push(new_obj)             
+         }
+
+      }
+      return new_arr
+    }
+}
+var objRef=new Movie('Casino Royale','Eon Productions','PG13')
+var movie_arr=[{
+    "title":"The Pursuit of Happiness",
+    "studio":"fox production",
+    "rating":"R"
+},
+{
+    "title":"Soorarai Potru",
+    "studio":"D2 Production",
+    "rating":"PG"
+},
+{
+    "title":"Sherlock Holmes",
+    "studio":"Silver Pictures",
+    "rating":"PG13"
+},
+{
+    "title":"Friends",
+    "studio":"NBC",
+    "rating":"PG"
+}
+]
+
+console.log(objRef.getPG(movie_arr))
+
+**********************************************************************************************
+
+**********************************************************************************************
+3.
+class Person
+{
+    constructor(name,skill,education,address)
+    {
+        this.name=name;
+        this.skill=skill;
+        this.education=education;
+        this.address=address;
+        
+    }
+    getPersonName()
+    {
+        console.log(`${this.name}`)
+    }
+    getStudentSkillSet()
+    {
+        console.log(`${this.skill}`)
+    }
+    getPersonEducation()
+    {
+        console.log(`${this.education}`)
+    }
+    getPersonAddress()
+    {
+        console.log(`${this.address}`)
+    }
+}
+var personObj=new Person('Rishika','C#,Javascript','BTech(IT)','Chennai')
+personObj.getPersonName()
+personObj.getStudentSkillSet()
+personObj.getPersonEducation()
+personObj.getPersonAddress()
+
+**********************************************************************************************
+4.
+class uber
+{
+    constructor(normalprice,peakprice)
+    {
+this.normalprice=normalprice;
+this.peakprice=peakprice;
+    }
+    NormalHour(km)
+    {
+        return km*this.normalprice
+
+    }
+    PeakHour(km)
+    {
+return km*this.peakprice;
+    }
+}
+var calculateprice=new uber(200,500);
+console.log("Normal Hour Price "+calculateprice.NormalHour(30));
+console.log("Peak Hour Price "+calculateprice.PeakHour(20))
+
+**********************************************************************************************
